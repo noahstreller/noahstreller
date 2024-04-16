@@ -14,8 +14,24 @@ jobs:
     steps:
       - uses: lowlighter/metrics@latest
         with:
-          base: header
+          user: noahstreller
+          template: classic
+          base: header, activity, community, repositories, metadata
+          config_timezone: Europe/Zurich
           plugin_isocalendar: yes
+          plugin_isocalendar_duration: half-year
           plugin_languages: yes
-          config_timezone: Europe/Paris
+          plugin_languages_categories: markup, programming
+          plugin_languages_colors: github
+          plugin_languages_limit: 8
+          plugin_languages_recent_categories: markup, programming
+          plugin_languages_recent_days: 14
+          plugin_languages_recent_load: 300
+          plugin_languages_sections: most-used
+          plugin_languages_threshold: 0%
+          plugin_notable: yes
+          plugin_notable_types: commit, pull_request
+          plugin_notable_from: all
+          plugin_notable_repositories: true
+          plugin_notable_filter: "stars:>1000"
           token: ${{ secrets.METRICS_TOKEN }}
